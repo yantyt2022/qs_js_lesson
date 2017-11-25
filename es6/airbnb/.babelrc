@@ -1,0 +1,8 @@
+{
+    "presets":[["airbnb",{
+        "targets":{
+            // "explorer":6 /*针对ie6版本*/
+            "chrome":50 //针对chrome版本50以上的
+        }
+    }]]
+}
