@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>如何用es5设置不可变量</title>
+</head>
+<body>
+    <script>
+        const user = 'yt';
+        const arr = [1,2];
+        arr.push(3);
+        // 不用es6 const?
+        // 如何实现私有的属性和方法
+        // 能读取到，同时要求不能修改
+        // 让这个变量，跟你变量的查找作用域，不会经过作用域
+        // js 有块级作用域，函数作用域，全局
+
+        // 自执行函数 立即执行函数
+        // 函数作用域
+        // 外界访问不到里面了
+        var User = (function(){
+            var UPPER_BOUND = 100;
+            var ctor = function(){
+
+            }
+            //静态方法
+            ctor.getUPPER_BOUND = function(){
+                return UPPER_BOUND;
+            }
+            //var UPPER_BOUND = 100; //如果不使用var，则会变成全局变量
+            return ctor;
+        })();
+        console.log(User.getUPPER_BOUND());
+    </script>
+</body>
+</html>
