@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象自变量</title>
+</head>
+<body>
+    <script>
+        // 浏览器不支持es6 object方法时取否
+    //   if(typeof Object.create !== 'function'){
+           /*
+           * 原型对象的继承
+           * o 要传入的原型对象，类型 Object
+           * 
+           * */
+            //  Object.create = function(o){
+            //      //类 继承关系
+            //      var F = function(){};
+            //      F.prototype = o;
+            //     //  新鲜出炉的对象
+            //      return new F();
+            //  }
+    //   }
+      var stooge = {
+          "first-name":"Jerome",
+          "last-name":"Howard"
+      }
+    //   toString Object原型对象的方法
+    // 每个对象都会有一个原型对象，默认就是object
+    // 原型对象 继承关系 对象
+    // 引用 两个对象
+      console.log(stooge.toString());
+    //   Object.create 将我们的对象作为原型对象，生成一个新的对象
+    // alert('IE垃圾');
+      var anthor_stooge =Object.create(stooge);//升华
+    //   console.log(anthor_stooge);
+      anthor_stooge.hasGirlFriend = false ;
+      alert(stooge.hasGirlFriend);
+      for(key in anthor_stooge){
+        //   是否是自身的属性
+          if(anthor_stooge.hasOwnProperty(key)){
+            //   如果是自身的就打印出来
+              console.log(key);
+              console.log(anthor_stooge[key]);
+          }
+          console.log(anthor_stooge.hasOwnProperty('constructor'));
+          console.log(anthor_stooge.hasOwnProperty('toString'));
+          console.log(anthor_stooge.hasOwnProperty('first-name'));
+        
+          // js动态属性
+          stooge.city = '南昌';
+          console.log(anthor_stooge.city);
+          delete stooge.city;
+          console.log(stooge);
+        //   console.log(key);
+        //   console.log(anthor_stooge[key]);
+      }
+    //   var name = stooge["first-name"] + stooge["last-name"];
+    //   console.log(stooge["first-name"]);  
+    //   var x = stooge;
+    //   x.sex = '男';
+    //   console.log(stooge);
+    </script>
+</body>
+</html>
